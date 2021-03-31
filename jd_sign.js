@@ -9,6 +9,8 @@ const download = require('download')
 
 // 京东cookie
 const cookie = process.env.JD_COOKIE
+// 真快乐 cookie
+const happy_cookie = process.env.HAPPY_COOKIE
 // Server酱SCKEY
 const push_key = process.env.PUSH_KEY
 
@@ -46,7 +48,30 @@ function setupCookie() {
   js_content = js_content.replace(/var Key = ''/, `var Key = '${cookie}'`)
   fs.writeFileSync(js_path, js_content, 'utf8')
 }
-
+function sign_happy() {
+    const options = {
+        uri: `https://club.m.gome.com.cn/mclub/api/sign/in?site=APP`,
+        header:{
+            "Host": club.m.gome.com.cn",
+            "Accept-Encoding": br, gzip, deflate",
+            "Cookie": `${happy_cookie}`,
+            "Connection": keep-alive",
+            "Accept": application/json, text/plain, */*",
+            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12.5.1 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B508/gomeplus/iphone/208/c9fddaa1-093e-4a3a-9378-38e0149d3f81/12.5.1/NotReachable/320*568/gome/c9fddaa1-093e-4a3a-9378-38e0149d3f81 /sa-sdk-ios/sensors-verify/report.gome.com.cn?production",
+            "Referer": https://club.m.gome.com.cn/mclub/index/signin",
+            "Accept-Language": zh-cn",
+            "X-Requested-With": XMLHttpRequest",
+        },
+        method: 'GET'
+    }
+    rp(options).then(res=>{
+        console.log("真快乐签到结果！",JSON.stringify(res)) 
+        fs.writeFileSync(result_path, JSON.stringify(res), 'utf8')
+    }).catch((err)=>{
+        console.log("真快乐签到失败")
+        fs.writeFileSync(error_path, err, 'utf8')
+    })
+}
 function sendNotificationIfNeed() {
 
   if (!push_key) {
@@ -100,6 +125,8 @@ function main() {
     exec(`node '${js_path}' >> '${result_path}'`);
     // 4、发送推送
     sendNotificationIfNeed() 
+    
+    sign_happy()
   }).catch((err)=>{
     console.log('脚本文件下载失败，任务中断！');
     fs.writeFileSync(error_path, err, 'utf8')
