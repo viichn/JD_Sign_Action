@@ -55,7 +55,7 @@ function sign_happy() {
         header:{
             "Host": "club.m.gome.com.cn",
             "Accept-Encoding": "br, gzip, deflate",
-            "Cookie": `"${happy_cookie}"`,
+            "Cookie": `${happy_cookie}`,
             "Connection": "keep-alive",
             "Accept": "application/json, text/plain, */*",
             "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12.5.1 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B508/gomeplus/iphone/208/c9fddaa1-093e-4a3a-9378-38e0149d3f81/12.5.1/NotReachable/320*568/gome/c9fddaa1-093e-4a3a-9378-38e0149d3f81 /sa-sdk-ios/sensors-verify/report.gome.com.cn?production",
@@ -66,7 +66,7 @@ function sign_happy() {
         json: true,
         method: 'GET'
     }
-    console.log("happy cookie ",JSON.stringify(options).substring(0,300))
+    console.log("happy cookie ",JSON.stringify(options).substring(0,500))
     rp.get(options).then(res=>{
         console.log("真快乐签到结果！",JSON.stringify(res)) 
         fs.writeFileSync(result_path, JSON.stringify(res), 'utf8')
