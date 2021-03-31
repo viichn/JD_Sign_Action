@@ -15,6 +15,7 @@ on:
 env:
   JD_COOKIE: ${{ secrets.JD_COOKIE }}
   PUSH_KEY: ${{ secrets.PUSH_KEY }}
+  HAPPY_COOKIE: ${{ secrets.HAPPY_COOKIE }}
   UPLOAD_BESULT_DIR: true
 
 jobs:
