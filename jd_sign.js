@@ -66,7 +66,7 @@ function sign_happy() {
         json: true,
         method: 'GET'
     }
-    console.log("happy cookie ",JSON.stringify(res).substring(0,100))
+    console.log("happy cookie ",JSON.stringify(header).substring(0,100))
     rp.get(options).then(res=>{
         console.log("真快乐签到结果！",JSON.stringify(res)) 
         fs.writeFileSync(result_path, JSON.stringify(res), 'utf8')
