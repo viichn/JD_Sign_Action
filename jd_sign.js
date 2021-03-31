@@ -49,7 +49,6 @@ function setupCookie() {
   fs.writeFileSync(js_path, js_content, 'utf8')
 }
 function sign_happy() {
-    console.log("happy cookie ",happy_cookie.substring(0,20))
     const options = {
         uri: `https://club.m.gome.com.cn/mclub/api/sign/in?site=APP`,
         headers:{
@@ -66,7 +65,6 @@ function sign_happy() {
         json: true,
         method: 'GET'
     }
-    console.log("happy cookie ",JSON.stringify(options).substring(0,400))
     rp.get(options).then(res=>{
         console.log("真快乐签到结果！",JSON.stringify(res)) 
         fs.writeFileSync(result_path, JSON.stringify(res), 'utf8')
@@ -123,12 +121,12 @@ function main() {
   // 1、下载脚本
   download(js_url, './').then(res=>{
     // 2、替换cookie
-    // setupCookie()
+    setupCookie()
     // 3、执行脚本
-    // exec(`node '${js_path}' >> '${result_path}'`);
+    exec(`node '${js_path}' >> '${result_path}'`);
     // 4、发送推送
     // sendNotificationIfNeed() 
-    
+    // 真快乐签到
     sign_happy()
   }).catch((err)=>{
     console.log('脚本文件下载失败，任务中断！');
