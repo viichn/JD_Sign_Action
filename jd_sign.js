@@ -52,7 +52,7 @@ function sign_happy() {
     console.log("happy cookie ",happy_cookie.substring(0,20))
     const options = {
         uri: `https://club.m.gome.com.cn/mclub/api/sign/in?site=APP`,
-        header:{
+        headers:{
             "Host": "club.m.gome.com.cn",
             "Accept-Encoding": "br, gzip, deflate",
             "Cookie": `${happy_cookie}`,
@@ -66,7 +66,7 @@ function sign_happy() {
         json: true,
         method: 'GET'
     }
-    console.log("happy cookie ",JSON.stringify(options).substring(0,500))
+    console.log("happy cookie ",JSON.stringify(options).substring(0,400))
     rp.get(options).then(res=>{
         console.log("真快乐签到结果！",JSON.stringify(res)) 
         fs.writeFileSync(result_path, JSON.stringify(res), 'utf8')
