@@ -57,7 +57,7 @@ function sign_happy() {
             "Cookie": `${happy_cookie}`,
             "Connection": "keep-alive",
             "Accept": "application/json, text/plain, */*",
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 12.5.1 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B508/gomeplus/iphone/208/c9fddaa1-093e-4a3a-9378-38e0149d3f81/12.5.1/NotReachable/320*568/gome/c9fddaa1-093e-4a3a-9378-38e0149d3f81 /sa-sdk-ios/sensors-verify/report.gome.com.cn?production",
+            "User-Agent": "Mozilla/5.0 (Linux; Android 6.0.1; BLA-AL00 Build/V417IR; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.100 Mobile Safari/537.36 /gomeplus/208/010000000074342/A009/6.0.1/WIFI/1440*810/gome/",
             "Referer": "https://club.m.gome.com.cn/mclub/index/signin",
             "Accept-Language": "zh-cn",
             "X-Requested-With": "XMLHttpRequest",
