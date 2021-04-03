@@ -125,7 +125,7 @@ function main() {
     // 3、执行脚本
     exec(`node '${js_path}' >> '${result_path}'`);
     // 4、发送推送
-    // sendNotificationIfNeed() 
+    sendNotificationIfNeed() 
     // 真快乐签到
     sign_happy()
   }).catch((err)=>{
