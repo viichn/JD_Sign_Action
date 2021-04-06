@@ -121,7 +121,7 @@ function main() {
   // 1、下载脚本
   download(js_url, './').then(res=>{
     // 真快乐签到
-    sign_happy()
+    // sign_happy()
     // 2、替换cookie
     setupCookie()
     // 3、执行脚本
